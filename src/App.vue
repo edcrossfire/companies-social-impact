@@ -1,5 +1,5 @@
 <template>
-<div class="bg-stone-100 h-screen w-full">
+<div class="bg-stone-100 min-h-screen w-full">
   <div class="flex justify-between items-center w-full p-6 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
     <div>
       <h1 class="text-3xl font-bold drop-shadow-md">YourStake</h1>
@@ -17,7 +17,7 @@
     
     <div class="p-4">
     <fieldset class="border p-4 bg-stone-50 rounded-xl drop-shadow-md w-full">
-      <legend class="drop-shadow-md">Check For:</legend>
+      <legend class="drop-shadow-md font-semibold">Check For:</legend>
       <div>
         <div class="space-x-1">
         <input type="checkbox" id="animals-include" name="filters" value="true" v-model="animalInclude">
@@ -51,7 +51,7 @@
             <div class="text-2xl font-bold">
               {{company['Company Name']}}
             </div>
-            <div class="text-xl">
+            <div class="text-xl pb-3">
               {{company['Ticker Symbol']}}
             </div>
             <div v-show=false>
@@ -62,18 +62,18 @@
                   {{count = count + 1}}
               </div>
             </div>
-            <p>Issue Count: {{count}}</p>
+            <p class="font-semibold">Issue Count: {{count}}</p>
             <div>
-              <p v-if="company['Animal Testing'] === true">Animal Testing</p>
+              <p v-if="company['Animal Testing'] === true" class="italic">Animal Testing</p>
             </div>
             <div>
-              <p v-if="company['Nuclear Weapons'] === true">Nuclear Weapons</p>
+              <p v-if="company['Nuclear Weapons'] === true" class="italic">Nuclear Weapons</p>
             </div>
             <div>
-              <p v-if="company['Coal Power'] === true">Coal Power</p>
+              <p v-if="company['Coal Power'] === true" class="italic">Coal Power</p>
             </div>
             <div>
-              <p v-if="company['Rainforest Destruction'] === true">Rainforest Destruction</p>
+              <p v-if="company['Rainforest Destruction'] === true" class="italic">Rainforest Destruction</p>
             </div>
           </div>
         </div>
