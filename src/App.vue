@@ -2,7 +2,7 @@
 <div class="bg-stone-100 h-screen w-full">
   <div class="flex justify-between items-center w-full p-6 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
     <div>
-      <h1 class="text-4xl font-bold drop-shadow-md">Title</h1>
+      <h1 class="text-3xl font-bold drop-shadow-md">YourStake</h1>
     </div>
     <div>
     <input type="text" v-model="search" placeholder="Search by name or ticker" class="border shadow-inner py-2 px-4 rounded-xl" />
@@ -13,9 +13,9 @@
     <p class="max-w-prose text-center py-2 px-2 italic mx-auto">Use this tool to find out what companies are involved in activities that are bad for the environment. You can use the search box above and the options below.</p>
   </div>
   
-  <div class="p-4 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
+  <div class="w-full md:w-2/3 lg:w-1/2 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
     
-    <div class="m-2">
+    <div class="p-4">
     <fieldset class="border p-4 bg-stone-50 rounded-xl drop-shadow-md w-full">
       <legend class="drop-shadow-md">Check For:</legend>
       <div>
@@ -35,6 +35,9 @@
         <input type="checkbox" id="rainforest-include" name="filters" value="true" v-model="rainforestInclude">
         <label for="rainforest-include">Rainforest Destruction</label>
         </div>
+        <div>
+          <button @click="clearFilters" class="px-2 py-1 border-b mt-4 shadow-md hover:shadow-none">Clear Filters</button>
+        </div>
       </div>
     </fieldset>
     </div>
@@ -51,6 +54,15 @@
             <div class="text-xl">
               {{company['Ticker Symbol']}}
             </div>
+            <div v-show=false>
+                {{count = 0}}
+            </div>
+            <div v-for="i in company">
+              <div v-if="i === true" v-show=false>
+                  {{count = count + 1}}
+              </div>
+            </div>
+            <p>Issue Count: {{count}}</p>
             <div>
               <p v-if="company['Animal Testing'] === true">Animal Testing</p>
             </div>
@@ -108,6 +120,14 @@ export default {
     .filter((company) => {
       return company['Rainforest Destruction'].toString().match(rainforest)
     });
+    }
+  },
+  methods: {
+    clearFilters() {
+      this.animalInclude = ''
+      this.nuclearInclude = ''
+      this.coalInclude = ''
+      this.rainforestInclude = ''
     }
   },
   name: 'App',
