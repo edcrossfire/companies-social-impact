@@ -2,14 +2,14 @@
 <div class="bg-stone-100 min-h-screen w-full">
   <div class="flex justify-between items-center w-full p-6 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto">
     <div>
-      <h1 class="text-3xl font-bold drop-shadow-md">YourStake</h1>
+      <h1 class="text-3xl font-bold drop-shadow-md">Title</h1>
     </div>
     <div>
     <input type="text" v-model="search" placeholder="Search by name or ticker" class="border shadow-inner py-2 px-4 rounded-xl" />
   </div>
   </div>
 
-  <div class="">
+  <div class="p-4">
     <p class="max-w-prose text-center py-2 px-2 italic mx-auto">Use this tool to find out what companies are involved in activities that are bad for the environment. You can use the search box above and the options below.</p>
   </div>
   
