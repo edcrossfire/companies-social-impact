@@ -1,4 +1,4 @@
-# companies-social-impact
+# companies-social-impact (a tool that displays data using search functions and multi-selection filters)
 
 ## Project setup
 ```
